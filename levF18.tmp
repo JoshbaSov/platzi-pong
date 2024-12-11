@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpb8bxl3k3eyx"]
+
+[ext_resource type="PackedScene" uid="uid://c7n7brrj64ywb" path="res://player.tscn" id="1_m1mhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lldcw"]
+size = Vector2(1920, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3omx"]
+size = Vector2(50, 1080)
+
+[node name="Level" type="Node2D"]
+
+[node name="Pared Superior" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Pared Superior"]
+position = Vector2(960, -25)
+shape = SubResource("RectangleShape2D_lldcw")
+
+[node name="Pared Inferior" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Pared Inferior"]
+position = Vector2(960, 1105)
+shape = SubResource("RectangleShape2D_lldcw")
+
+[node name="Porteria player" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Porteria player"]
+position = Vector2(-25, 540)
+shape = SubResource("RectangleShape2D_r3omx")
+
+[node name="Porteria ia" type="Area2D" parent="."]
+position = Vector2(1970, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Porteria ia"]
+position = Vector2(-25, 540)
+shape = SubResource("RectangleShape2D_r3omx")
+
+[node name="Player" parent="." instance=ExtResource("1_m1mhh")]
+position = Vector2(50, 460)
